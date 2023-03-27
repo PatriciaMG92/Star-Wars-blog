@@ -2,10 +2,12 @@ import React from "react";
 import { Context } from "../store/appContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
 const Card = ({item, type, url}) =>{
 	const { store, actions } = useContext(Context);
 	const navigate = useNavigate();
+
     return(
         <>
             <div className="card" style={{width: 18+'rem'}} id>
@@ -35,7 +37,7 @@ const Card = ({item, type, url}) =>{
             			</>
           			)}
 						
-						<button type="button" className="btn btn-outline-warning" onClick={()=>{actions.setFavorites(item.result.properties.name)}}><span className="material-symbols-outlined">
+						<button id="favorite" type="button" className="btn btn-outline-warning" onClick={()=>{actions.setFavorites(item.result.properties.name)}}><span className="material-symbols-outlined">
 							favorite
 						</span></button>
 					</div>
